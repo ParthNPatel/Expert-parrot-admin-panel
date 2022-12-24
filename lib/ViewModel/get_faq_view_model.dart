@@ -6,11 +6,8 @@ import 'package:get/get.dart';
 class GetFAQViewModel extends GetxController {
   bool catchError = false;
   int selectedCategories = 0;
-  List<String> categories = [
-    'Chemistry',
-    'Physics',
-    'Maths',
-  ];
+  int totalData = 0;
+
   dynamic selectedValue;
 
   updateError(val) {
@@ -42,6 +39,8 @@ class GetFAQViewModel extends GetxController {
     update();
     try {
       GetFaqResponseModel response = await GetFAQRepo.getFAQRepo(query: query);
+      totalData = response.data!.length;
+      update();
       updateError(false);
       print("GetFaqResponseModel=response==>$response");
 

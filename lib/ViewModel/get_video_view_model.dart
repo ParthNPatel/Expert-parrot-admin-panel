@@ -4,6 +4,7 @@ import 'package:expert_parrot_admin/Model/Response_model/get_video_response_mode
 import 'package:get/get.dart';
 
 class GetVideoViewModel extends GetxController {
+  int totalData = 0;
   bool catchError = false;
 
   updateError(val) {
@@ -25,7 +26,8 @@ class GetVideoViewModel extends GetxController {
     try {
       GetVideoResponseModel response = await GetVideoRepo.getVideoRepo();
       print("GetVideoResponseModel=response==>$response");
-
+      totalData = response.data!.length;
+      update();
       _getVideoApiResponse = ApiResponse.complete(response);
       updateError(false);
     } catch (e) {
