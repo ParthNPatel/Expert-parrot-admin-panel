@@ -1,6 +1,7 @@
 enum DashBoardPanelScreens {
   dashboard,
   video,
-  categories,
+  FaqCategories,
+  postCategories,
   FAQ,
 }

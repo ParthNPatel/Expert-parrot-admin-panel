@@ -39,6 +39,8 @@ class DashBoardPanel extends StatelessWidget {
             const SizedBox(
               height: 40,
             ),
+
+            /// 0
             MouseRegion(
               onEnter: (e) {
                 controller.updateHover(true);
@@ -86,6 +88,8 @@ class DashBoardPanel extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
+
+            /// 1
             MouseRegion(
               onEnter: (e) {
                 controller.updateHover1(true);
@@ -133,6 +137,8 @@ class DashBoardPanel extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
+
+            /// 2
             MouseRegion(
               onEnter: (e) {
                 controller.updateHover2(true);
@@ -144,7 +150,7 @@ class DashBoardPanel extends StatelessWidget {
                 margin: EdgeInsets.only(right: 20),
                 decoration: BoxDecoration(
                   color: controller.currentScreen.value ==
-                          DashBoardPanelScreens.categories
+                          DashBoardPanelScreens.postCategories
                       ? Color(0xff066A60)
                       : controller.hover2.value == true
                           ? Color(0xff066A60)
@@ -164,12 +170,12 @@ class DashBoardPanel extends StatelessWidget {
                     ),
                   ),
                   textColor: _updateColor(controller.currentScreen,
-                      DashBoardPanelScreens.categories,
+                      DashBoardPanelScreens.postCategories,
                       context: context),
-                  titleMessage: "Categories",
+                  titleMessage: "Post Categories",
                   onTap: () {
                     controller.currentScreen.value =
-                        DashBoardPanelScreens.categories;
+                        DashBoardPanelScreens.postCategories;
                     drawerKey.currentState!.closeDrawer();
 
                     // Get.offAndToNamed(Routes.video);
@@ -180,6 +186,8 @@ class DashBoardPanel extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
+
+            /// 3
             MouseRegion(
               onEnter: (e) {
                 controller.updateHover3(true);
@@ -191,9 +199,58 @@ class DashBoardPanel extends StatelessWidget {
                 margin: EdgeInsets.only(right: 20),
                 decoration: BoxDecoration(
                   color: controller.currentScreen.value ==
-                          DashBoardPanelScreens.FAQ
+                          DashBoardPanelScreens.FaqCategories
                       ? Color(0xff066A60)
                       : controller.hover3.value == true
+                          ? Color(0xff066A60)
+                          : Colors.transparent,
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(100),
+                    topRight: Radius.circular(100),
+                  ),
+                ),
+                child: CustomTile(
+                  leading: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: Image.asset(
+                      AppImages.categories,
+                      height: iconHeight,
+                      color: AppColor.whiteColor,
+                    ),
+                  ),
+                  textColor: _updateColor(controller.currentScreen,
+                      DashBoardPanelScreens.FaqCategories,
+                      context: context),
+                  titleMessage: "FAQ Categories",
+                  onTap: () {
+                    controller.currentScreen.value =
+                        DashBoardPanelScreens.FaqCategories;
+                    drawerKey.currentState!.closeDrawer();
+
+                    // Get.offAndToNamed(Routes.video);
+                  },
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+
+            /// 4
+            MouseRegion(
+              onEnter: (e) {
+                controller.updateHover4(true);
+              },
+              onExit: (e) {
+                controller.updateHover4(false);
+              },
+              child: Container(
+                margin: EdgeInsets.only(right: 20),
+                decoration: BoxDecoration(
+                  color: controller.currentScreen.value ==
+                          DashBoardPanelScreens.FAQ
+                      ? Color(0xff066A60)
+                      : controller.hover4.value == true
                           ? Color(0xff066A60)
                           : Colors.transparent,
                   borderRadius: BorderRadius.only(

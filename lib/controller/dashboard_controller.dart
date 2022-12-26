@@ -9,6 +9,7 @@ class DashBoardController extends GetxController {
   var hover1 = false.obs;
   var hover2 = false.obs;
   var hover3 = false.obs;
+  var hover4 = false.obs;
 
   updateHover(bool val) {
     hover.value = val;
@@ -27,6 +28,11 @@ class DashBoardController extends GetxController {
 
   updateHover3(bool val) {
     hover3.value = val;
+    update();
+  }
+
+  updateHover4(bool val) {
+    hover4.value = val;
     update();
   }
 }

@@ -212,7 +212,7 @@ class _VideoScreenState extends State<VideoScreen> {
                     }
                     return controller.catchError == false
                         ? ListView.separated(
-                            reverse: true,
+                            // reverse: true,
                             separatorBuilder: (context, index) {
                               return const SizedBox(
                                 height: 20,
@@ -595,14 +595,15 @@ class _VideoScreenState extends State<VideoScreen> {
                                     ),
                                     onPressed: () async {
                                       uploadSelectedFile(
-                                        description: descriptionController.text
-                                            .toString(),
-                                        title: titleController.text.toString(),
-                                        objFile1: ObjThumbnail,
-                                        objFile: objVideo,
-                                      );
-                                      await getVideoViewModel.getVideoViewModel(
-                                          isLoading: false);
+                                          description: descriptionController
+                                              .text
+                                              .toString(),
+                                          title:
+                                              titleController.text.toString(),
+                                          objFile1: ObjThumbnail,
+                                          objFile: objVideo,
+                                          getVideoViewModel: getVideoViewModel);
+
                                       Get.back();
                                     },
                                     child: Text(

@@ -1,4 +1,5 @@
 import 'package:expert_parrot_admin/Screens/add_categories/add_categories_screen.dart';
+import 'package:expert_parrot_admin/Screens/add_post_categories/add_post_categories_screen.dart';
 import 'package:expert_parrot_admin/Screens/dashboard/dashboard_screen.dart';
 import 'package:expert_parrot_admin/Screens/faq/faq_screen.dart';
 import 'package:expert_parrot_admin/Screens/video/video_screen.dart';
@@ -52,9 +53,12 @@ class _HomePageState extends State<HomePage> {
                           DashBoardPanelScreens.video
                       ? VideoScreen()
                       : dashBoardController.currentScreen.value ==
-                              DashBoardPanelScreens.categories
-                          ? AddCategoriesScreen()
-                          : FAQScreen(),
+                              DashBoardPanelScreens.postCategories
+                          ? AddPostCategoriesScreen()
+                          : dashBoardController.currentScreen.value ==
+                                  DashBoardPanelScreens.FaqCategories
+                              ? AddCategoriesScreen()
+                              : FAQScreen(),
             );
 
             // Expanded(

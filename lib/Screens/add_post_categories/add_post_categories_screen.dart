@@ -1,29 +1,30 @@
 import 'package:expert_parrot_admin/Model/Apis/api_response.dart';
-import 'package:expert_parrot_admin/Model/Response_model/get_categories_response_model.dart';
-import 'package:expert_parrot_admin/ViewModel/add_categories_view_model.dart';
-import 'package:expert_parrot_admin/ViewModel/get_categories.dart';
+import 'package:expert_parrot_admin/Model/Response_model/get_post_categories_res_model.dart';
+import 'package:expert_parrot_admin/ViewModel/add_post_categories_view_model.dart';
+import 'package:expert_parrot_admin/ViewModel/get_post_categories_view_model.dart';
 import 'package:expert_parrot_admin/Widgets/app_color.dart';
 import 'package:expert_parrot_admin/Widgets/snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AddCategoriesScreen extends StatefulWidget {
-  const AddCategoriesScreen({Key? key}) : super(key: key);
+class AddPostCategoriesScreen extends StatefulWidget {
+  const AddPostCategoriesScreen({Key? key}) : super(key: key);
 
   @override
-  State<AddCategoriesScreen> createState() => _AddCategoriesScreenState();
+  State<AddPostCategoriesScreen> createState() =>
+      _AddPostCategoriesScreenState();
 }
 
-class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
+class _AddPostCategoriesScreenState extends State<AddPostCategoriesScreen> {
   TextEditingController categoriesController = TextEditingController();
-  AddCategoriesViewModel addCategoriesViewModel =
-      Get.put(AddCategoriesViewModel());
-  GetCategoriesViewModel getCategoriesViewModel =
-      Get.put(GetCategoriesViewModel());
-  GetCategoriesResponseModel? responseModel;
+  AddPostCategoriesViewModel addPostCategoriesViewModel =
+      Get.put(AddPostCategoriesViewModel());
+  GetPostCategoriesViewModel getPostCategoriesViewModel =
+      Get.put(GetPostCategoriesViewModel());
+  GetPostCategoriesResponseModel? getPostCategories;
   @override
   void initState() {
-    getCategoriesViewModel.getCategoriesViewModel();
+    getPostCategoriesViewModel.getPostCategoriesViewModel();
 
     super.initState();
   }
@@ -57,7 +58,7 @@ class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      'FAQ Categories',
+                      'Post Categories',
                       style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 22,
@@ -103,19 +104,19 @@ class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    GetBuilder<GetCategoriesViewModel>(
+                    GetBuilder<GetPostCategoriesViewModel>(
                       builder: (controller) {
-                        if (controller.getCategoriesApiResponse.status ==
+                        if (controller.getPostCategoriesApiResponse.status ==
                             Status.LOADING) {
                           return const Center(
                             child: CircularProgressIndicator(),
                           );
                         }
-                        if (controller.getCategoriesApiResponse.status ==
+                        if (controller.getPostCategoriesApiResponse.status ==
                             Status.COMPLETE) {
                           try {
-                            responseModel =
-                                controller.getCategoriesApiResponse.data;
+                            getPostCategories =
+                                controller.getPostCategoriesApiResponse.data;
                           } catch (e) {
                             controller.updateError(true);
                           }
@@ -127,7 +128,7 @@ class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
                                       height: 20,
                                     );
                                   },
-                                  itemCount: responseModel!.data!.length,
+                                  itemCount: getPostCategories!.data!.length,
                                   shrinkWrap: true,
                                   itemBuilder: (context, index) {
                                     return Container(
@@ -151,7 +152,7 @@ class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
                                                 BorderRadius.circular(10),
                                           ),
                                           child: Text(
-                                            '${responseModel!.data![index].name ?? "NA"}',
+                                            '${getPostCategories!.data![index].name ?? "NA"}',
                                             style: const TextStyle(
                                               fontWeight: FontWeight.w600,
                                               fontSize: 20,
@@ -280,7 +281,7 @@ class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
                           ),
                           Align(
                             alignment: Alignment.center,
-                            child: GetBuilder<AddCategoriesViewModel>(
+                            child: GetBuilder<AddPostCategoriesViewModel>(
                               builder: (controller) {
                                 return controller.catchError == true
                                     ? CircularProgressIndicator(
@@ -296,8 +297,8 @@ class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
                                           onPressed: () async {
                                             if (categoriesController
                                                 .text.isNotEmpty) {
-                                              await addCategoriesViewModel
-                                                  .addCategoriesViewModel(
+                                              await addPostCategoriesViewModel
+                                                  .addPostCategoriesViewModel(
                                                 model: {
                                                   "name": categoriesController
                                                       .text
@@ -306,20 +307,20 @@ class _AddCategoriesScreenState extends State<AddCategoriesScreen> {
                                                 },
                                               );
 
-                                              if (addCategoriesViewModel
-                                                      .addCategoriesApiResponse
+                                              if (addPostCategoriesViewModel
+                                                      .addPostCategoriesApiResponse
                                                       .status ==
                                                   Status.COMPLETE) {
                                                 Get.back();
-                                                await getCategoriesViewModel
-                                                    .getCategoriesViewModel(
+                                                await getPostCategoriesViewModel
+                                                    .getPostCategoriesViewModel(
                                                         isLoading: false);
                                                 snackBarGet('Categories Added',
                                                     snackBarBackGroundColor:
                                                         AppColor.greenColor);
                                               }
-                                              if (addCategoriesViewModel
-                                                      .addCategoriesApiResponse
+                                              if (addPostCategoriesViewModel
+                                                      .addPostCategoriesApiResponse
                                                       .status ==
                                                   Status.ERROR) {
                                                 Get.back();

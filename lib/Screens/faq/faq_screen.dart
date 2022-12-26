@@ -7,6 +7,7 @@ import 'package:expert_parrot_admin/ViewModel/add_faq_view_model.dart';
 import 'package:expert_parrot_admin/ViewModel/get_categories.dart';
 import 'package:expert_parrot_admin/ViewModel/get_faq_view_model.dart';
 import 'package:expert_parrot_admin/Widgets/app_color.dart';
+import 'package:expert_parrot_admin/Widgets/snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -503,19 +504,21 @@ class _FAQScreenState extends State<FAQScreen> {
                                       if (addFaqViewModel
                                               .addFaqApiResponse.status ==
                                           Status.COMPLETE) {
+                                        Get.back();
                                         await getFAQViewModel.getFAQViewModel(
                                           isLoading: false,
                                           query: controller.selectedValue,
                                         );
-                                        Get.back();
+                                        snackBarGet('FAQ Added',
+                                            snackBarBackGroundColor:
+                                                AppColor.greenColor);
                                       }
                                       if (addFaqViewModel
                                               .addFaqApiResponse.status ==
                                           Status.ERROR) {
-                                        Get.showSnackbar(GetSnackBar(
-                                          message: 'Something went wrong',
-                                          duration: Duration(seconds: 1),
-                                        ));
+                                        snackBarGet('Something went wrong',
+                                            snackBarBackGroundColor:
+                                                AppColor.redColor);
                                       }
                                     },
                                     child: Text(
