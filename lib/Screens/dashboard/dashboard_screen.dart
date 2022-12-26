@@ -48,6 +48,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                 AppImages.video,
                                 height: 70,
                                 width: 70,
+                                color: AppColor.blackColor,
                               ),
                               SizedBox(
                                 height: 30,

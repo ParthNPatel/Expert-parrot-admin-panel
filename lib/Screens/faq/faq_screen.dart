@@ -318,7 +318,7 @@ class _FAQScreenState extends State<FAQScreen> {
               backgroundColor: Colors.transparent,
               body: Center(
                 child: Container(
-                  height: 520,
+                  height: 550,
                   width: 465,
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   decoration: BoxDecoration(
@@ -481,7 +481,8 @@ class _FAQScreenState extends State<FAQScreen> {
                               Align(
                                 alignment: Alignment.center,
                                 child: SizedBox(
-                                  width: 200,
+                                  width: 400,
+                                  height: 45,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: AppColor.mainColor,
@@ -520,7 +521,7 @@ class _FAQScreenState extends State<FAQScreen> {
                                     child: Text(
                                       'Add',
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 18,
                                         color: AppColor.whiteColor,
                                         fontWeight: FontWeight.w500,
                                       ),

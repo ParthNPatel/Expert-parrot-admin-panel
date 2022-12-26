@@ -144,9 +144,56 @@ class DashBoardPanel extends StatelessWidget {
                 margin: EdgeInsets.only(right: 20),
                 decoration: BoxDecoration(
                   color: controller.currentScreen.value ==
-                          DashBoardPanelScreens.FAQ
+                          DashBoardPanelScreens.categories
                       ? Color(0xff066A60)
                       : controller.hover2.value == true
+                          ? Color(0xff066A60)
+                          : Colors.transparent,
+                  borderRadius: BorderRadius.only(
+                    bottomRight: Radius.circular(100),
+                    topRight: Radius.circular(100),
+                  ),
+                ),
+                child: CustomTile(
+                  leading: Padding(
+                    padding: const EdgeInsets.all(5),
+                    child: Image.asset(
+                      AppImages.categories,
+                      height: iconHeight,
+                      color: AppColor.whiteColor,
+                    ),
+                  ),
+                  textColor: _updateColor(controller.currentScreen,
+                      DashBoardPanelScreens.categories,
+                      context: context),
+                  titleMessage: "Categories",
+                  onTap: () {
+                    controller.currentScreen.value =
+                        DashBoardPanelScreens.categories;
+                    drawerKey.currentState!.closeDrawer();
+
+                    // Get.offAndToNamed(Routes.video);
+                  },
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            MouseRegion(
+              onEnter: (e) {
+                controller.updateHover3(true);
+              },
+              onExit: (e) {
+                controller.updateHover3(false);
+              },
+              child: Container(
+                margin: EdgeInsets.only(right: 20),
+                decoration: BoxDecoration(
+                  color: controller.currentScreen.value ==
+                          DashBoardPanelScreens.FAQ
+                      ? Color(0xff066A60)
+                      : controller.hover3.value == true
                           ? Color(0xff066A60)
                           : Colors.transparent,
                   borderRadius: BorderRadius.only(

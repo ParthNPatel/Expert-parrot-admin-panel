@@ -313,7 +313,7 @@ class _VideoScreenState extends State<VideoScreen> {
               backgroundColor: Colors.transparent,
               body: Center(
                 child: Container(
-                  height: 600,
+                  height: 620,
                   width: 465,
                   clipBehavior: Clip.antiAliasWithSaveLayer,
                   decoration: BoxDecoration(
@@ -587,7 +587,8 @@ class _VideoScreenState extends State<VideoScreen> {
                               Align(
                                 alignment: Alignment.center,
                                 child: SizedBox(
-                                  width: 200,
+                                  width: 400,
+                                  height: 50,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: AppColor.mainColor,
@@ -607,7 +608,7 @@ class _VideoScreenState extends State<VideoScreen> {
                                     child: Text(
                                       'Add',
                                       style: TextStyle(
-                                        fontSize: 15,
+                                        fontSize: 18,
                                         color: AppColor.whiteColor,
                                         fontWeight: FontWeight.w500,
                                       ),
