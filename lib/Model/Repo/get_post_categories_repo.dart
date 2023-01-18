@@ -5,10 +5,10 @@ class GetPostCategoriesRepo {
   static Future<GetPostCategoriesResponseModel> getPostCategoriesRepo() async {
     var headers = {
       'Authorization':
-          'Bearer eyJhbGciOiJIUzI1NiJ9.NjM5NDFiMzUwOGRlNDVkY2Y0ODRmMTZh.Fq8YAOcUK9rNZ7j0DaW-k9k5NPjd8DXajOhFcCwRm4U'
+          'Bearer eyJhbGciOiJIUzI1NiJ9.NjNjN2FlOGMzNTM2NDJmODRmMWVmMzYz.NXf15WaNpWMn9Yycep_24V2FdQ-k9f8wfJKrpB-xINM'
     };
     var response = await APIService().getResponse(
-        url: 'http://3.109.139.48:5000/post/category',
+        url: 'http://52.66.209.219:5000/post/category',
         apitype: APIType.aGet,
         header: headers);
     print('GetPostCategoriesResponseModel===>>>  $response');

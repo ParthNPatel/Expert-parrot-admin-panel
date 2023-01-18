@@ -16,7 +16,7 @@ void uploadSelectedFile(
   //---Create http package multipart request object
   final request = http.MultipartRequest(
     "POST",
-    Uri.parse("http://3.109.139.48:5000/video"),
+    Uri.parse("http://52.66.209.219:5000/video"),
   );
   //-----add other fields if needed
   request.fields.addAll({

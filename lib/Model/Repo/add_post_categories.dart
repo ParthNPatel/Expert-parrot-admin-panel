@@ -8,7 +8,7 @@ class AddPostCategoriesRepo {
       "Content-Type": "application/json",
     };
     var response = await APIService().getResponse(
-        url: 'http://3.109.139.48:5000/post/category',
+        url: 'http://52.66.209.219:5000/post/category',
         body: body,
         header: header,
         apitype: APIType.aPost);

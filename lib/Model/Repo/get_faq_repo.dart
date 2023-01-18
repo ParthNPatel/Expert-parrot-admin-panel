@@ -5,7 +5,7 @@ import 'package:expert_parrot_admin/Model/Services/api_service.dart';
 class GetFAQRepo {
   static Future<GetFaqResponseModel> getFAQRepo({String? query}) async {
     var response = await APIService().getResponse(
-      url: 'http://3.109.139.48:5000/admin/faq/$query',
+      url: 'http://52.66.209.219:5000/admin/faq/$query',
       apitype: APIType.aGet,
     );
     print('GetFaqResponseModel===>>>  $response');
@@ -16,7 +16,7 @@ class GetFAQRepo {
 
   static Future<GetCategoriesResponseModel> getCategoriesRepo() async {
     var response = await APIService().getResponse(
-      url: 'http://3.109.139.48:5000/admin/category',
+      url: 'http://52.66.209.219:5000/admin/category',
       apitype: APIType.aGet,
     );
     print('GetCategoriesResponseModel===>>>  $response');

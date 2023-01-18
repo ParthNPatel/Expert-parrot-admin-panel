@@ -29,7 +29,7 @@ class APIService {
         // dio.FormData formData = new dio.FormData.fromMap(body!);
         //
         // dio.Response result =
-        //     await dio.Dio().post('http://3.109.139.48:5000/video',
+        //     await dio.Dio().post('http://52.66.209.219:5000/video',
         //         data: formData,
         //         options: dio.Options(
         //           contentType: "form-data",

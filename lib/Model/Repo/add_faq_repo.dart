@@ -7,7 +7,7 @@ class AddFaqRepo {
       "Content-Type": "application/json",
     };
     var response = await APIService().getResponse(
-        url: 'http://3.109.139.48:5000/admin/faq',
+        url: 'http://52.66.209.219:5000/admin/faq',
         body: body,
         header: header,
         apitype: APIType.aPost);

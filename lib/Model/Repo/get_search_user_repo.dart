@@ -4,11 +4,11 @@ import 'package:expert_parrot_admin/Model/Services/api_service.dart';
 class GetSearchUserRepo {
   var headers = {
     'Authorization':
-        'Bearer eyJhbGciOiJIUzI1NiJ9.NjM5MmM2ZTViODU1YmE4MzIxMzQyODJm.uE2uzq0YV1nGkNS3g2a3EUZv85in1lwHHO7I_hr6ZNM'
+        'Bearer eyJhbGciOiJIUzI1NiJ9.NjNjN2FlOGMzNTM2NDJmODRmMWVmMzYz.NXf15WaNpWMn9Yycep_24V2FdQ-k9f8wfJKrpB-xINM'
   };
   Future<GetSearchUserResponseModel> getSearchUserRepo() async {
     var response = await APIService().getResponse(
-        url: 'http://3.109.139.48:5000/user/search',
+        url: 'http://52.66.209.219:5000/user/search',
         apitype: APIType.aGet,
         header: headers);
     print('GetSearchUserResponseModel response===>>>  $response');
